@@ -1,0 +1,29 @@
+{
+  "name": "coursekata-jupyter-kernel-bridge-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "packages/client",
+    "packages/extension"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @coursekata/jupyter-kernel-client && npm run build --workspace @coursekata/jupyter-kernel-bridge",
+    "build:extension": "npm run build && node packages/extension/build-extension.mjs",
+    "test": "npm run build && npm test --workspace @coursekata/jupyter-kernel-bridge",
+    "typecheck": "npm run build && npm run typecheck --workspaces",
+    "pack:client": "npm pack --workspace @coursekata/jupyter-kernel-client --pack-destination dist",
+    "pack": "uv build && npm run pack:client",
+    "check:version": "node scripts/check-version.mjs"
+  },
+  "devDependencies": {
+    "webpack": "5.104.1"
+  },
+  "overrides": {
+    "webpack": "$webpack"
+  }
+}

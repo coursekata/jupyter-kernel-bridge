@@ -1,0 +1,9 @@
+node_modules/
+lib/
+dist/
+labextension/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+coverage/

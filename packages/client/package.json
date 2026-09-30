@@ -1,0 +1,55 @@
+{
+  "name": "@coursekata/jupyter-kernel-client",
+  "version": "0.1.0",
+  "description": "Control embedded Jupyter kernels over a private Comlink connection",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./protocol": {
+      "types": "./lib/protocol.d.ts",
+      "default": "./lib/protocol.js"
+    }
+  },
+  "files": [
+    "lib",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "prepack": "npm run build"
+  },
+  "dependencies": {
+    "@jupyterlab/services": "^7.6.3",
+    "comlink": "4.4.2"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  },
+  "typesVersions": {
+    "*": {
+      "protocol": [
+        "lib/protocol.d.ts"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coursekata/jupyter-kernel-bridge.git",
+    "directory": "packages/client"
+  },
+  "bugs": {
+    "url": "https://github.com/coursekata/jupyter-kernel-bridge/issues"
+  },
+  "homepage": "https://github.com/coursekata/jupyter-kernel-bridge#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

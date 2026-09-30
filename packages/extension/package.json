@@ -1,0 +1,60 @@
+{
+  "name": "@coursekata/jupyter-kernel-bridge",
+  "version": "0.1.0",
+  "description": "Jupyter frontend extension exposing owned kernel execution and lifecycle",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "main": "lib/extension.js",
+  "types": "lib/extension.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/extension.d.ts",
+      "default": "./lib/extension.js"
+    },
+    "./service": {
+      "types": "./lib/service.d.ts",
+      "default": "./lib/service.js"
+    },
+    "./endpoint": {
+      "types": "./lib/endpoint.d.ts",
+      "default": "./lib/endpoint.js"
+    }
+  },
+  "files": [
+    "lib",
+    "labextension",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^4.6.3",
+    "@jupyterlab/coreutils": "^6.6.4",
+    "@jupyterlab/services": "^7.6.3",
+    "comlink": "4.4.2",
+    "@coursekata/jupyter-kernel-client": "0.1.0"
+  },
+  "devDependencies": {
+    "@jupyterlab/builder": "4.5.1",
+    "typescript": "5.9.3",
+    "@lumino/signaling": "2.1.6"
+  },
+  "jupyterlab": {
+    "extension": "lib/extension.js",
+    "outputDir": "labextension"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coursekata/jupyter-kernel-bridge.git",
+    "directory": "packages/extension"
+  },
+  "bugs": {
+    "url": "https://github.com/coursekata/jupyter-kernel-bridge/issues"
+  },
+  "homepage": "https://github.com/coursekata/jupyter-kernel-bridge#readme",
+  "private": true
+}
