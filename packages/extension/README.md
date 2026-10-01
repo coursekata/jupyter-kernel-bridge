@@ -12,15 +12,13 @@ it needs no console widgets, external command provider or peer dependencies.
 The host application supplies Jupyter's shared APIs and installed language kernels.
 R, Python and their libraries are not bundled in the bridge.
 
-Version 0.1.0 is prepared locally and has not been published.
-
 ## Install
 
-After release, install the matching tagged source in the environment that builds
-JupyterLite or runs JupyterLab:
+Install the matching tagged source in the environment that builds JupyterLite or
+runs JupyterLab:
 
 ```sh
-uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.0
+uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.1
 jupyter lite build
 ```
 
