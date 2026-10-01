@@ -1,6 +1,6 @@
 {
   "name": "@coursekata/jupyter-kernel-bridge",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Jupyter frontend extension exposing owned kernel execution and lifecycle",
   "license": "GPL-3.0-or-later",
   "type": "module",

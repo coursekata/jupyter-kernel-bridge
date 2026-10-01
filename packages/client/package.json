@@ -1,6 +1,6 @@
 {
   "name": "@coursekata/jupyter-kernel-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Control embedded Jupyter kernels over a private Comlink connection",
   "license": "GPL-3.0-or-later",
   "type": "module",
