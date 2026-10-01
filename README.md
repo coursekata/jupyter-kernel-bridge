@@ -14,8 +14,8 @@ exercise reset policy, or output renderer. The hosting site installs its own ker
 
 ## Installation
 
-The first release is being prepared locally. After publication, install the client
-from GitHub Packages and declare the extension as a tagged uv dependency:
+Install the client from GitHub Packages and declare the extension as a tagged uv
+dependency:
 
 Configure the consumer's `.npmrc` with the GitHub Packages scope and authenticate
 with an account or CI token that has read access:
@@ -28,7 +28,7 @@ Keep credentials in the user/CI npm configuration, outside source control.
 
 ```sh
 npm install @coursekata/jupyter-kernel-client
-uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.0
+uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.1
 ```
 
 Use a separate uv project for the environment that builds your JupyterLite site.
@@ -37,9 +37,9 @@ Python install requires Node.js 22 or newer and npm: its build hook runs `npm ci
 against this repository's lockfile and builds the extension. Then run `jupyter lite
 build` from that environment. No Pyodide addon is required by the bridge.
 
-For private repositories/packages, configure normal Git and npm authentication in
-both CI and Renovate. The application's GitHub token does not automatically grant
-access to a different private repository.
+The repository and npm package are public. GitHub's npm registry still requires
+authentication for package installation, while the tagged source dependency needs
+no Git credentials.
 
 See [client usage](packages/client/README.md) for iframe ownership, callback
 handling and the complete API. The [extension documentation](packages/extension/README.md)
@@ -81,5 +81,4 @@ and run their browser acceptance checks before releasing.
 The release workflow runs manually against an existing version tag, verifies that the
 tag matches the package version, installs both built packages as consumers would,
 publishes the client to GitHub Packages and attaches the wheel and source archive to a
-GitHub release. Configure the `release` environment and package access before using
-it. Git-tag consumers need read access to this repository.
+GitHub release. Configure the `release` environment before using it.

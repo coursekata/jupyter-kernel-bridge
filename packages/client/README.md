@@ -10,11 +10,9 @@ another command provider. The npm package has ordinary dependencies and no peer
 dependencies. The hosting Jupyter application supplies its shared APIs and
 installed language kernels; this package does not ship R, Python or their packages.
 
-Version 0.1.0 is prepared locally and has not been published.
-
 ## Install
 
-After release, install the npm package in the embedding application:
+Install the npm package in the embedding application:
 
 Configure the consumer's `.npmrc` with the GitHub Packages scope and authenticate
 with an account or CI token that has read access:
@@ -33,7 +31,7 @@ Install the matching extension in the environment that builds JupyterLite
 or runs JupyterLab:
 
 ```sh
-uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.0
+uv add git+https://github.com/coursekata/jupyter-kernel-bridge --tag v0.1.1
 jupyter lite build
 ```
 
