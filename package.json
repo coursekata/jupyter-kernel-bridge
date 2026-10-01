@@ -18,7 +18,8 @@
     "typecheck": "npm run build && npm run typecheck --workspaces",
     "pack:client": "npm pack --workspace @coursekata/jupyter-kernel-client --pack-destination dist",
     "pack": "uv build && npm run pack:client",
-    "check:version": "node scripts/check-version.mjs"
+    "test:client-package": "npm install --prefix tests/client-consumer --no-package-lock --no-save ./dist/coursekata-jupyter-kernel-client-*.tgz && tsc -p tests/client-consumer/tsconfig.json && node tests/client-consumer/runtime.mjs",
+    "version:set": "npm version --workspaces --include-workspace-root --no-git-tag-version"
   },
   "devDependencies": {
     "webpack": "5.104.1"

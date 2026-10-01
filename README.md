@@ -64,6 +64,9 @@ frontend APIs. Server-backed JupyterLab deployment still needs validation.
 The client and extension use the same package version and immutable `vX.Y.Z` tag.
 Protocol compatibility is checked separately during connection. A release must
 preserve compatibility with deployed clients within the supported protocol version.
+The Python package derives its version from the root npm package with
+`hatch-nodejs-version`. Set all npm workspace versions together with
+`npm run version:set -- X.Y.Z`; the Python metadata follows automatically.
 
 Renovate handles routine versions using CourseKata's shared software preset;
 Dependabot handles security alerts and supported security fixes. There is no second
@@ -75,7 +78,8 @@ Tag publication and npm publication are explicit release actions. No build comma
 publishes a package or deploys a site. Install both candidate packages in consumers
 and run their browser acceptance checks before releasing.
 
-The release workflow runs manually against an existing version tag, verifies the
-packages, publishes the client to GitHub Packages and attaches the wheel and source
-archive to a GitHub release. Configure the `release` environment and package access
-before using it. Git-tag consumers need read access to this repository.
+The release workflow runs manually against an existing version tag, verifies that the
+tag matches the package version, installs both built packages as consumers would,
+publishes the client to GitHub Packages and attaches the wheel and source archive to a
+GitHub release. Configure the `release` environment and package access before using
+it. Git-tag consumers need read access to this repository.

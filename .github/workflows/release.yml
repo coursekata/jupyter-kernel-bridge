@@ -29,16 +29,17 @@ jobs:
       - name: Check release identity
         env:
           RELEASE_TAG: ${{ inputs.tag }}
-        run: npm run check:version
+        run: test "$RELEASE_TAG" = "v$(npm pkg get version | tr -d '\"')"
       - run: npm ci
       - run: npm test
       - run: uv build
       - run: npm run pack:client
-      - run: python scripts/check-artifacts.py
+      - run: npm run test:client-package
       - name: Publish the client
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: npm publish ./dist/coursekata-jupyter-kernel-client-*.tgz
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: npm publish "./dist/coursekata-jupyter-kernel-client-${RELEASE_TAG#v}.tgz"
       - name: Attach installable packages to the release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

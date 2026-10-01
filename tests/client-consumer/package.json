@@ -1,0 +1,5 @@
+{
+  "name": "@coursekata/jupyter-kernel-client-consumer-test",
+  "private": true,
+  "type": "module"
+}

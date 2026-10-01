@@ -23,7 +23,7 @@ jobs:
       - run: npm run typecheck
       - run: uv build
       - run: npm run pack:client
-      - run: python scripts/check-artifacts.py
+      - run: npm run test:client-package
       - name: Install the wheel without source files
         run: |
           uv venv /tmp/bridge-wheel-test
